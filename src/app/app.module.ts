@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
+import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
   {path: '', component: MainComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
     MainComponent,
     ProductsComponent,
     ContactComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
