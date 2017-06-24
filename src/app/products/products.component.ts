@@ -1,24 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import {Product} from "../service/product";
+import {Product} from '../service/product';
+import {ProductsService} from '../service/products.service';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
+  providers: [
+    ProductsService
+  ]
 })
 export class ProductsComponent implements OnInit {
 
-  products: Array<Product> = [{
-    name: '코알라',
-    price: 30000,
-    img: '/img/Koala.jpg'
-  }, {
-    name: '해파리',
-    price: 20000,
-    img: '/img/Jellyfish.jpg'
-  }];
+  products: Observable<Product[]>;
 
-  constructor() { }
+  constructor(private productsService: ProductsService) {
+    this.products = productsService.getProducts();
+  }
 
   ngOnInit() {
   }
